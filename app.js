@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const config = require('./config')
-const routes = require('./routes')
+const routes = require('./routes/index')
 
 
 mongoose.connect(config.db, {useNewUrlParser: true})
@@ -13,6 +13,6 @@ mongoose.connect(config.db, {useNewUrlParser: true})
 app.use(cors())
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false}))
-app.use('/facturación', routes)
+app.use('/facturacion', routes)
 
 module.exports = app
