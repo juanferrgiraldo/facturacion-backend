@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
 const saleSchema = new Schema({
   saleCode: { type: String },
-  saleDate: { type: Date },
-  products: [{ type: schema.Types.ObjectId, ref: 'product'}],
+  saleDate: { type: Date, default: Date.now },
+  products: [{ type: String }],
   totalPrice: { type: Number },  
   calculatedVatRate: { type: Number },
-  cashier: { type: schema.Types.ObjectId, ref: 'cashier' }
+  cashier: { type: String }
 })
 
-mondule.exports = mongoose.model("sale", saleSchema)
+module.exports = mongoose.model("sale", saleSchema)
